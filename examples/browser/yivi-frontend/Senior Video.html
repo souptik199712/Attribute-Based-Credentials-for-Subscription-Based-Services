@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Streaming Website with IRMA</title>
+<script src="https://irma.app/irma.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Welcome to Video Streaming</h1>
+</header>
+
+<section id="login">
+  <h2>Login</h2>
+  <button onclick="showVideoCatalog();">Login with IRMA</button>
+  <p id="loginResult"></p>
+</section>
+
+<section id="catalog">
+  <h2>Video Catalogue</h2>
+  <ul id="videoList"></ul>
+</section>
+
+<footer>
+  <p>&copy; 2024 Video Streaming Website with IRMA</p>
+</footer>
+
+<script>
+  function showVideoCatalog() {
+    // Display video catalogue based on user's age
+    var age = 31; // Example age, replace with actual age retrieved from IRMA attributes
+    var videoCatalog = document.getElementById('videoList');
+    videoCatalog.innerHTML = ''; // Clear previous content
+    var listItem = document.createElement("li");
+
+    if (age >= 18) {
+
+    // Create a new list item element
+    
+    // Set the inner HTML of the list item
+    listItem.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/FQPlEnKav48?si=41RCKhrlYk0F4eAO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+
+
+// Append the new list item to the parent element
+videoCatalog.appendChild(listItem);
+      videoCatalog.innerHTML += '<li>Video 2</li>';
+      videoCatalog.innerHTML += '<li>Video 3</li>';
+    } else {
+        
+      // Display non-adult videos
+      listItem.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/zjfViRCjT5U?si=bv7EMTlgWoiznor0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+      videoCatalog.appendChild(listItem);
+      videoCatalog.innerHTML += '<li>Family Friendly Video 2</li>';
+      videoCatalog.innerHTML += '<li>Family Friendly Video 3</li>';
+    }
+
+    // Show video catalogue section
+    document.getElementById('catalog').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>

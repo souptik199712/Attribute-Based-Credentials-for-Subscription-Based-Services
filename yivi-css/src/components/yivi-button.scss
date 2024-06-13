@@ -1,0 +1,56 @@
+/*
+Yivi button
+
+A button to press to launch the disclosure flow in the Yivi app (locally on a
+mobile device)
+
+Markup:
+<button class="yivi-web-button">
+  Open Yivi-app
+</button>
+<a href="#" class="yivi-web-button">
+  Open Yivi-app
+</a>
+
+Styleguide Components.Yivi button
+*/
+
+@import '../mixins/reset', '../mixins/fonts', '../variables/colours',
+  '../variables/sizes', '../mixins/svg-url', '../variables/svg-images';
+
+.yivi-web-button {
+  @extend %yivi-web-button;
+}
+
+%yivi-web-button {
+  @include reset;
+  @include font;
+  display: inline-block;
+  padding: 12px 32px;
+
+  background-image: svg-url($svg-image-yivi-button-background);
+  background-position: right top;
+  background-repeat: no-repeat;
+
+  background-color: $button-color;
+  border: 0px solid transparent;
+  border-radius: $button-border-radius;
+  text-decoration: none;
+  color: $button-text-color;
+  font-weight: 500;
+  cursor: pointer;
+
+  // Keep your paws off our button, mobile browsers!
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+
+  &:focus {
+    outline: 0;
+  }
+}

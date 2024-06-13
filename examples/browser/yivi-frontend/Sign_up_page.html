@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Streaming Service</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-container {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    .btn {
+      flex: 1;
+      margin: 0 10px;
+      padding: 15px;
+      border: none;
+      border-radius: 4px;
+      background-color: rgba(210, 13, 13, 0.7);
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: rgba(210, 13, 13, 0.7);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+      <h1>Register to video streaming service</h1>
+      <div class="btn-container">
+        <button class="btn" onclick="openMembershipPage()">Register Membership Details</button>
+        <button class="btn" onclick="openUserPage()">Register User Details</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let membershipClicked = false;
+    let userClicked = false;
+
+    function openMembershipPage() {
+      membershipClicked = true;
+      window.open('https://privacybydesign.foundation/attribute-index/en/irma-demo.IRMATube.member.html', '_blank')
+      redirectToLanding();
+    }
+
+    function openUserPage() {
+      userClicked = true;
+      window.open('https://privacybydesign.foundation/attribute-index/en/irma-demo.digidproef.personalData.html', '_blank')
+      redirectToLanding();
+    }
+
+    function redirectToLanding() {
+      if (membershipClicked && userClicked) {
+        window.location.href = 'http://localhost:8088/Landing_Page.html';
+      }
+    }
+
+  </script>
+</body>
+</html>
